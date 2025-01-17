@@ -17,7 +17,7 @@ const programs = ref<Program[]>([]) // Stockera les données de la collection "p
 const fetchPrograms = async () => {
   try {
     const response = await pb.collection('program').getFullList<Program>({
-      sort: 'created' // Trie par heure
+      sort: '-created'
     })
     programs.value = response
   } catch (error) {
