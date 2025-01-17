@@ -12,10 +12,10 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
       <!-- Titres -->
       <div>
         <h1 class="text-4xl lg:text-7xl font-bold text-secondary">Le Défi 24h</h1>
-        <h2 class="text-4xl lg:text-7xl font-bold text-secondary">C'est bientôt !</h2>
+        <h2 class="text-4xl lg:text-7xl font-bold text-secondary">C'est bientôt fini !</h2>
 
         <!-- Paragraphe sous les titres en mobile -->
-        <p class="text-2xl lg:text-3xl font-bold mt-4 lg:hidden">17 Janvier 2025</p>
+        <p class="text-2xl lg:text-3xl font-bold mt-4 lg:hidden">Dépêchez-vous</p>
       </div>
     </div>
 
@@ -39,7 +39,7 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
       <div class="overflow-hidden whitespace-nowrap">
         <p class="animate-marquee-10s flex">
           Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie
-          ? ✨ Prêt Pour La Folie ? rêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La
+          ? ✨ Prêt Pour La Folie ? Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La
           Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt
           Pour La Folie ? ✨ Prêt Pour La Folie ? ✨
         </p>

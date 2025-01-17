@@ -13,14 +13,23 @@ defineProps({
     required: true
   }
 })
+
+// État pour contrôler l'affichage de la modal
+import { ref } from 'vue';
+const isModalOpen = ref(false);
+
+// Fonction pour fermer la modal
+const closeModal = () => {
+  isModalOpen.value = false;
+};
 </script>
 
 <template>
   <div
-    class="card-defi flex flex-col items-center bg-secondary text-white rounded-3xl p-6 shadow-lg w-80"
+    class="card-defi flex flex-col items-center bg-secondary text-white rounded-3xl p-6 shadow-lg w-80 transform transition-transform duration-300 hover:scale-105"
   >
     <!-- Image principale -->
-    <div class="w-full h-40 overflow-hidden rounded-xl mb-4">
+    <div class="w-full h-40 overflow-hidden rounded-xl mb-4 cursor-pointer" @click="isModalOpen = true">
       <img :src="imageSrc" alt="Team image" class="w-full h-full object-cover" />
     </div>
 
@@ -40,6 +49,23 @@ defineProps({
         <span>{{ member.name }}</span>
       </li>
     </ul>
+  </div>
+
+  <!-- Modal -->
+  <div
+    v-if="isModalOpen"
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50"
+    @click.self="closeModal"
+  >
+    <div class="relative bg-white rounded-lg shadow-lg max-w-3xl">
+      <button
+        class="absolute top-2 right-2 text-2xl font-bold text-gray-700 hover:text-gray-900"
+        @click="closeModal"
+      >
+        &times;
+      </button>
+      <img :src="imageSrc" alt="Large team image" class="w-full h-full object-cover rounded-lg" />
+    </div>
   </div>
 </template>
 

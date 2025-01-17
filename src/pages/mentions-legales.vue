@@ -47,8 +47,8 @@
           3. Responsable de la protection des données personnelles (DPO)
         </h2>
         <p class="text-black text-base">
-          Le responsable de la gestion des données personnelles est : Pascal Chatonnay<br />
-          Directeur du Département MMi de l’IUT Nord Franche-Comté.<br />
+          Le responsable de la gestion des données personnelles est : Pascal Chatonnay, Directeur du
+          Département MMi de l’IUT Nord Franche-Comté.<br />
           Contact : via le formulaire de contact disponible sur le site.
         </p>
       </section>
@@ -123,7 +123,7 @@
         </p>
         <ul class="list-disc ml-4 text-base">
           <li>Inscription classique : 2 €.</li>
-          <li>Inscription avec repas : 12 €.</li>
+          <li>Inscription avec repas : 10 €.</li>
         </ul>
         <p class="text-black text-base">
           Le consentement pour l’utilisation des photos et vidéos des participants est obtenu via le

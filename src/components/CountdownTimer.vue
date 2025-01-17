@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 // Date cible : 17 janvier à 18h00
-const targetDate = new Date('2025-01-17T18:00:00')
+const targetDate = new Date('2025-01-18T18:30:00')
 
 const days = ref(0)
 const hours = ref(0)
