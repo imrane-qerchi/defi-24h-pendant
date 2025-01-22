@@ -50,6 +50,15 @@ onMounted(fetchRanking)
       <div class="border-b border-secondary w-1/2 sm:w-2/4 mx-auto lg:mx-0"></div>
     </div>
 
+    <div class="mt-12 max-w-7xl">
+    <p class="text-sm lg:text-2xl text-black mb-8">
+      Après 24 heures de créativité et de mini-défis épiques, voici le fameux classement final.       </p>
+      <p class="text-sm lg:text-2xl text-black mb-8">
+        Tout est là : les points, les performances et qui a brillé (ou juste survécu).      </p>
+        <p class="text-sm lg:text-2xl text-black mb-8">
+          Prenez le temps de découvrir les exploits des équipes et rappelez-vous : l’important, c’est de participer ! (mais gagner, c’est quand même plus cool)</p>
+    </div>
+
     <div class="flex justify-center items-end mb-8 lg:mb-12">
       <!-- 2ème place -->
       <div class="text-center">

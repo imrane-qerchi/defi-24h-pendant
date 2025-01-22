@@ -73,13 +73,11 @@ onMounted(() => {
     <!-- Contenu -->
     <div class="mt-12 max-w-7xl">
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Voici la liste des équipes en pleine action pour ce Défi 24H ! Chaque membre donne tout pour
-        briller et porter haut les couleurs de son équipe.
+        Voici la liste des équipes qui ont relevé le défi cette année ! 
       </p>
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Prenez un moment pour découvrir les dream teams qui vont marquer cette édition !
+        Ces dream teams ont donné le meilleur d’elles-mêmes pendant 24 heures intenses, mêlant créativité, stratégie et un soupçon de folie.
       </p>
-
       <!-- Cards -->
       <div
         v-if="teams.length"

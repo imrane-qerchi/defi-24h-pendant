@@ -2,7 +2,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="mt-10 bg-primary flex flex-col items-center justify-center px-4 py-12">
+  <div class="mt-10 bg-primary flex flex-col items-center justify-center px-4 lg:px-80 py-12 space-y-4">
     <!-- Titre principal -->
     <h1 class="text-3xl lg:text-5xl font-bold text-secondary mb-8">
       Les inscriptions sont closes !
