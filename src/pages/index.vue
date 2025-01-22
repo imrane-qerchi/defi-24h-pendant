@@ -111,36 +111,22 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
         ce soit pour le design, le montage ou simplement pour encourager. Une seule règle : pas plus
         de 5, sinon c’est la révolution !
       </p>
-      <div
-        class="flex flex-col lg:flex-row lg:justify-center lg:space-x-36 mt-8 space-y-4 lg:space-y-0"
-      >
-        <router-link
-          to="/creation-equipe"
-          class="bg-secondary text-white px-28 py-4 rounded-full text-xl lg:text-2xl font-normal hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 whitespace-nowrap flex items-center justify-center text-center transition-transform duration-200"
-        >
-          Créer mon équipe
-        </router-link>
-        <router-link
-          to="/equipes"
-          class="bg-secondary text-white px-28 py-4 rounded-full text-xl lg:text-2xl font-normal hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 whitespace-nowrap flex items-center justify-center text-center transition-transform duration-200"
-        >
-          Intégrer une équipe
-        </router-link>
-      </div>
     </div>
 
     <!-- Partenaires -->
     <div class="mt-36 text-center">
       <h3 class="text-xl lg:text-5xl font-bold text-secondary mb-10">NOS PARTENAIRES</h3>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center">
-        <img src="@/assets/crous.svg" alt="CROUS" class="mx-auto h-20" />
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+        <img src="@/assets/pma.svg" alt="PMA" class="mx-auto h-20" />
         <img src="@/assets/LOGO_UMLP.png" alt="Littera" class="mx-auto h-20" />
         <img src="@/assets/iut-nfc.svg" alt="iUT NFC" class="mx-auto h-20" />
+        <img src="@/assets/kitsune.jpg" alt="Monsieur Kitsune" class="mx-auto h-20" />
         <img
           src="@/assets/littera_logo.png"
           alt="Université Marie et Louis Pasteur"
           class="mx-auto h-20"
         />
+        <img src="@/assets/memo.jpg" alt="Mémo" class="mx-auto h-20" />
       </div>
     </div>
 

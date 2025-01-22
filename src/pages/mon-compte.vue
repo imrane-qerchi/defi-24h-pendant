@@ -337,24 +337,24 @@ console.log('Teams Loaded:', teams.value)
     <div
       class="flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-4 pl-24 whitespace-nowrap"
     >
-    <!-- Modal de modification de la photo de profil -->
-    <div
-      v-if="isProfilePhotoModalOpen"
-      class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center"
-    >
-      <div class="bg-white p-6 rounded-lg w-96">
-        <h2 class="text-xl font-bold mb-4">Modifier la photo de profil</h2>
-        <input type="file" accept="image/*" @change="handleFileUpload" />
-        <div class="mt-4 flex justify-end space-x-4">
-          <button class="px-4 py-2 bg-gray-300 rounded" @click="isProfilePhotoModalOpen = false">
-            Annuler
-          </button>
-          <button class="px-4 py-2 bg-secondary text-white rounded" @click="updatePhoto">
-            Valider
-          </button>
+      <!-- Modal de modification de la photo de profil -->
+      <div
+        v-if="isProfilePhotoModalOpen"
+        class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center"
+      >
+        <div class="bg-white p-6 rounded-lg w-96">
+          <h2 class="text-xl font-bold mb-4">Modifier la photo de profil</h2>
+          <input type="file" accept="image/*" @change="handleFileUpload" />
+          <div class="mt-4 flex justify-end space-x-4">
+            <button class="px-4 py-2 bg-gray-300 rounded" @click="isProfilePhotoModalOpen = false">
+              Annuler
+            </button>
+            <button class="px-4 py-2 bg-secondary text-white rounded" @click="updatePhoto">
+              Valider
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
