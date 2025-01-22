@@ -15,9 +15,7 @@ const editableFields = ref<Record<string, boolean>>({
   email: false,
   promotion: false
 })
-const isJoinModalOpen = ref(false) // Modal pour rejoindre une équipe
-const isLeaveModalOpen = ref(false) // Modal de confirmation pour quitter l'équipe
-const isDissolveModalOpen = ref(false) // Modal de confirmation pour dissoudre l'équipe
+
 const isProfilePhotoModalOpen = ref(false) // Modal spécifique à la photo de profil
 
 const openProfilePhotoModal = () => {
@@ -131,116 +129,11 @@ const updateUser = async (field: keyof UsersResponse, value: string) => {
   }
 }
 
-// Fonction pour rejoindre une équipe
-const joinTeam = async () => {
-  if (!selectedTeam.value) {
-    console.error('No team selected.')
-    return
-  }
-
-  const userId = pb.authStore.model?.id
-  if (!userId) {
-    console.error('No user ID found.')
-    return
-  }
-
-  try {
-    // Vérifiez si l'équipe existe
-    const team = await pb.collection('teams').getOne<TeamsResponse>(selectedTeam.value)
-    console.log('Team found:', team)
-
-    // Ajoutez l'utilisateur à l'équipe
-    const updatedMembers = team.membres ? [...team.membres, userId] : [userId]
-    await pb.collection('teams').update<TeamsResponse>(selectedTeam.value, {
-      membres: updatedMembers
-    })
-
-    // Mettez à jour le champ `equipe` de l'utilisateur
-    await pb.collection('users').update<UsersResponse>(userId, {
-      equipe: selectedTeam.value
-    })
-
-    alert("Vous avez rejoint l'équipe avec succès !")
-    isJoinModalOpen.value = false
-
-    // Rafraîchir les données utilisateur
-    fetchUser()
-  } catch (error) {
-    console.error("Erreur lors de la tentative de rejoindre l'équipe:", error)
-  }
-}
-
-// Fonction pour quitter l'équipe
-const leaveTeam = async () => {
-  if (!user.value || !user.value.expand?.equipe) {
-    console.error("Aucune équipe trouvée pour l'utilisateur.")
-    return
-  }
-
-  try {
-    // Supprime l'utilisateur de l'équipe dans la collection `users`
-    await pb.collection('users').update(user.value.id, { equipe: null })
-
-    // Récupère les informations de l'équipe
-    const team = await pb.collection('teams').getOne<TeamsResponse>(user.value.expand.equipe.id)
-
-    // Retire l'utilisateur du tableau `membres`
-    const updatedMembers = team.membres?.filter((memberId) => memberId !== user.value.id) || []
-    await pb.collection('teams').update(team.id, { membres: updatedMembers })
-
-    alert("Vous avez quitté l'équipe avec succès !")
-    isLeaveModalOpen.value = false
-
-    // Rafraîchit les données utilisateur
-    fetchUser()
-  } catch (error) {
-    console.error("Erreur lors de la tentative de quitter l'équipe :", error)
-    alert('Une erreur est survenue. Veuillez réessayer.')
-  }
-}
-
-// Fonction pour dissoudre l'équipe
-const dissolveTeam = async () => {
-  if (!user.value?.expand?.equipe) return
-
-  try {
-    await pb.collection('teams').delete(user.value.expand.equipe.id)
-    await pb.collection('users').update(user.value.id, { equipe: null })
-    isDissolveModalOpen.value = false
-    fetchUser()
-  } catch (error) {
-    console.error("Erreur lors de la tentative de dissoudre l'équipe:", error)
-  }
-}
-
 // Gérer l'upload de fichier
 const handleFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement
   if (target && target.files) {
     newTeamPhoto.value = target.files[0]
-  }
-}
-
-// Mettre à jour les informations de l'équipe
-const updateTeam = async () => {
-  if (!user.value?.expand?.equipe) return
-
-  try {
-    const formData = new FormData()
-    if (newTeamName.value) {
-      formData.append('nom', newTeamName.value)
-    }
-    if (newTeamPhoto.value) {
-      formData.append('photo', newTeamPhoto.value)
-    }
-
-    await pb.collection('teams').update(user.value.expand.equipe.id, formData)
-
-    alert("L'équipe a été mise à jour avec succès !")
-    isModalOpen.value = false
-    fetchUser() // Rafraîchir les données utilisateur
-  } catch (error) {
-    console.error("Erreur lors de la mise à jour de l'équipe:", error)
   }
 }
 
@@ -444,47 +337,6 @@ console.log('Teams Loaded:', teams.value)
     <div
       class="flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-4 pl-24 whitespace-nowrap"
     >
-      <button
-        v-if="!user?.expand?.equipe"
-        class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-transform duration-200"
-        @click="isJoinModalOpen = true"
-      >
-        Rejoindre une équipe
-      </button>
-
-      <button
-        v-if="!user?.expand?.equipe"
-        class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-transform duration-200"
-        @click="router.push('/creation-equipe')"
-      >
-        Créer mon équipe
-      </button>
-
-      <button
-        v-if="user?.expand?.equipe && user?.expand?.equipe?.chef === user?.id"
-        class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-transform duration-200"
-        @click="isModalOpen = true"
-      >
-        Modifier mon équipe
-      </button>
-
-      <button
-        v-if="user?.expand?.equipe && user?.expand?.equipe?.chef !== user?.id"
-        class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 transition-transform duration-200"
-        @click="isLeaveModalOpen = true"
-      >
-        Quitter l'équipe
-      </button>
-
-      <button
-        v-if="user?.expand?.equipe && user?.expand?.equipe?.chef === user?.id"
-        class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 transition-transform duration-200"
-        @click="isDissolveModalOpen = true"
-      >
-        Dissoudre l'équipe
-      </button>
-    </div>
-
     <!-- Modal de modification de la photo de profil -->
     <div
       v-if="isProfilePhotoModalOpen"
@@ -503,126 +355,6 @@ console.log('Teams Loaded:', teams.value)
         </div>
       </div>
     </div>
-
-    <!-- Modal de modification d'équipe -->
-    <div
-      v-if="isModalOpen"
-      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-    >
-      <div class="bg-[#1C1C1C] text-white p-8 rounded-xl w-96">
-        <h2 class="text-2xl font-bold mb-6">Modifie ton équipe</h2>
-        <hr class="border-blue-500 mb-6" />
-        <form @submit.prevent="updateTeam" class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium mb-2">Nom de l'équipe</label>
-            <input
-              v-model="newTeamName"
-              type="text"
-              class="w-full bg-gray-700 text-white p-3 rounded-lg"
-            />
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-2">Photo de l'équipe</label>
-            <input
-              type="file"
-              @change="handleFileChange"
-              class="w-full bg-gray-700 text-white p-3 rounded-lg"
-            />
-          </div>
-          <div class="flex justify-between">
-            <button
-              type="button"
-              class="bg-white text-black px-4 py-2 rounded-lg"
-              @click="isModalOpen = false"
-            >
-              Annuler
-            </button>
-            <button type="submit" class="bg-blue-500 px-4 py-2 rounded-lg">Enregistrer</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Modal confirmation rejoindre -->
-    <div
-      v-if="isJoinModalOpen"
-      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-    >
-      <div class="bg-[#1C1C1C] text-white p-8 rounded-lg w-[500px]">
-        <p class="text-center text-xl mb-6">Sélectionnez une équipe à rejoindre :</p>
-        <select
-          v-model="selectedTeam"
-          class="w-full p-2 mb-6 bg-gray-800 text-white rounded"
-          @change="() => console.log('Selected Team:', selectedTeam)"
-        >
-          <option v-for="team in teams" :key="team.id" :value="team.id">
-            {{ team.nom }}
-          </option>
-        </select>
-
-        <div class="flex justify-center space-x-8">
-          <button
-            class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            @click="joinTeam"
-          >
-            Rejoindre
-          </button>
-          <button
-            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300"
-            @click="isJoinModalOpen = false"
-          >
-            Annuler
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal confirmation quitter -->
-    <div
-      v-if="isLeaveModalOpen"
-      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-    >
-      <div class="bg-[#1C1C1C] text-white p-8 rounded-lg w-[500px]">
-        <p class="text-center text-xl mb-6">Es-tu sûr(e) de vouloir quitter l'équipe ?</p>
-        <div class="flex justify-center space-x-8">
-          <button
-            class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            @click="leaveTeam"
-          >
-            Oui
-          </button>
-          <button
-            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300"
-            @click="isLeaveModalOpen = false"
-          >
-            Non
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal confirmation dissoudre -->
-    <div
-      v-if="isDissolveModalOpen"
-      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-    >
-      <div class="bg-[#1C1C1C] text-white p-8 rounded-lg w-[500px]">
-        <p class="text-center text-xl mb-6">Es-tu sûr(e) de vouloir dissoudre l'équipe ?</p>
-        <div class="flex justify-center space-x-8">
-          <button
-            class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            @click="dissolveTeam"
-          >
-            Oui
-          </button>
-          <button
-            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300"
-            @click="isDissolveModalOpen = false"
-          >
-            Non
-          </button>
-        </div>
-      </div>
     </div>
   </div>
 </template>
