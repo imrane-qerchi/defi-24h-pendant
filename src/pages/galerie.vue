@@ -22,9 +22,8 @@
         Revivez les moments forts du Défi 24H !
       </h2>
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Revivez les meilleurs moments du Défi 24H grâce à notre galerie photo ! Après l’événement,
-        retrouvez ici toutes les images capturées pendant ces 24 heures de créativité, de folie et
-        de fatigue.
+        Revivez les meilleurs moments du Défi 24H grâce à notre galerie photo ! Retrouvez ici toutes
+        les images capturées pendant ces 24 heures de créativité, de folie et de fatigue.
       </p>
       <p class="text-sm lg:text-2xl text-black mb-8">
         Qui sait, vous y découvrirez peut-être votre meilleur profil... ou une photo compromettante

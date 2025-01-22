@@ -64,9 +64,6 @@ watch(
       <router-link to="/classement" class="text-2xl font-medium hover:text-secondary transition">
         Classement
       </router-link>
-      <router-link to="/programme" class="text-2xl font-medium hover:text-secondary transition">
-        Programme
-      </router-link>
       <router-link to="/creations" class="text-2xl font-medium hover:text-secondary transition">
         Créations
       </router-link>
@@ -170,15 +167,6 @@ watch(
             @click="closeMenu"
           >
             Classement
-          </router-link>
-        </li>
-        <li>
-          <router-link
-            to="/programme"
-            class="text-xl font-semibold hover:text-secondary"
-            @click="closeMenu"
-          >
-            Programme
           </router-link>
         </li>
         <li>

@@ -15,7 +15,6 @@
       >
         <router-link to="/equipes" class="hover:text-secondary">Équipes</router-link>
         <router-link to="/classement" class="hover:text-secondary">Classement</router-link>
-        <router-link to="/programme" class="hover:text-secondary">Programme</router-link>
         <router-link to="/creations" class="hover:text-secondary">Créations</router-link>
         <router-link to="/galerie" class="hover:text-secondary">Galerie</router-link>
         <router-link to="/contact" class="hover:text-secondary">Contact</router-link>

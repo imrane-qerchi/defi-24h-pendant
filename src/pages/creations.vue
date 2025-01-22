@@ -22,13 +22,12 @@
         Les créations arrivent bientôt... patience !
       </h2>
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Pour l’instant, cette galerie est vide (logique, le Défi 24H n’a pas encore commencé). Mais
-        ne vous inquiétez pas, après l’événement, vous pourrez découvrir ici toutes les productions
+        Pour l’instant, cette galerie est vide. Mais ne vous inquiétez pas, vous pourrez bientôt découvrir ici toutes les productions
         réalisées : des œuvres créatives, des projets originaux et peut-être même des chefs-d’œuvre
         inoubliables.
       </p>
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Revenez après le défi pour admirer tout le talent des équipes MMI !
+        Revenez dans quelque temps pour admirer tout le talent des équipes MMI !
       </p>
     </div>
   </div>
