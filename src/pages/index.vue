@@ -21,7 +21,7 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
 
     <!-- Paragraphe positionné en bas à droite pour desktop -->
     <p
-      class="hidden lg:block text-4xl lg:text-7xl font-bold text-secondary absolute bottom-10 right-10"
+      class="hidden lg:block text-4xl lg:text-5xl font-bold text-black absolute bottom-10 right-10"
     >
       À l'année prochaine !
     </p>
