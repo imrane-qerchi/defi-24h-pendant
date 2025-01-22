@@ -51,12 +51,16 @@ onMounted(fetchRanking)
     </div>
 
     <div class="mt-12 max-w-7xl">
-    <p class="text-sm lg:text-2xl text-black mb-8">
-      Après 24 heures de créativité et de mini-défis épiques, voici le fameux classement final.       </p>
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Tout est là : les points, les performances et qui a brillé (ou juste survécu).      </p>
-        <p class="text-sm lg:text-2xl text-black mb-8">
-          Prenez le temps de découvrir les exploits des équipes et rappelez-vous : l’important, c’est de participer ! (mais gagner, c’est quand même plus cool)</p>
+        Après 24 heures de créativité et de mini-défis épiques, voici le fameux classement final.
+      </p>
+      <p class="text-sm lg:text-2xl text-black mb-8">
+        Tout est là : les points, les performances et qui a brillé (ou juste survécu).
+      </p>
+      <p class="text-sm lg:text-2xl text-black mb-8">
+        Prenez le temps de découvrir les exploits des équipes et rappelez-vous : l’important, c’est
+        de participer ! (mais gagner, c’est quand même plus cool)
+      </p>
     </div>
 
     <div class="flex justify-center items-end mb-8 lg:mb-12">
@@ -74,7 +78,7 @@ onMounted(fetchRanking)
         <img
           :src="podiumSecond"
           alt="Podium 2ème place"
-          class="w-32 h-32 sm:w-48 sm:h-48 lg:w-80 lg:h-80 "
+          class="w-32 h-32 sm:w-48 sm:h-48 lg:w-80 lg:h-80"
         />
       </div>
 
@@ -92,7 +96,7 @@ onMounted(fetchRanking)
         <img
           :src="podiumFirst"
           alt="Podium 1ère place"
-          class="w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 "
+          class="w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80"
         />
       </div>
 

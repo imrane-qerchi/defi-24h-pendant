@@ -73,10 +73,11 @@ onMounted(() => {
     <!-- Contenu -->
     <div class="mt-12 max-w-7xl">
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Voici la liste des équipes qui ont relevé le défi cette année ! 
+        Voici la liste des équipes qui ont relevé le défi cette année !
       </p>
       <p class="text-sm lg:text-2xl text-black mb-8">
-        Ces dream teams ont donné le meilleur d’elles-mêmes pendant 24 heures intenses, mêlant créativité, stratégie et un soupçon de folie.
+        Ces dream teams ont donné le meilleur d’elles-mêmes pendant 24 heures intenses, mêlant
+        créativité, stratégie et un soupçon de folie.
       </p>
       <!-- Cards -->
       <div

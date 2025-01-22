@@ -12,10 +12,10 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
       <!-- Titres -->
       <div>
         <h1 class="text-4xl lg:text-7xl font-bold text-secondary">Le Défi 24h</h1>
-        <h2 class="text-4xl lg:text-7xl font-bold text-secondary">C'est bientôt fini !</h2>
+        <h2 class="text-4xl lg:text-7xl font-bold text-secondary">C'était incroyable !</h2>
 
         <!-- Paragraphe sous les titres en mobile -->
-        <p class="text-2xl lg:text-3xl font-bold mt-4 lg:hidden">Dépêchez-vous</p>
+        <p class="text-2xl lg:text-3xl font-bold mt-4 lg:hidden">À l'année prochaine !</p>
       </div>
     </div>
 
@@ -23,7 +23,7 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
     <p
       class="hidden lg:block text-4xl lg:text-7xl font-bold text-secondary absolute bottom-10 right-10"
     >
-      17 Janvier 2025
+      À l'année prochaine !
     </p>
 
     <!-- Timer -->
@@ -38,10 +38,10 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
     >
       <div class="overflow-hidden whitespace-nowrap">
         <p class="animate-marquee-10s flex">
-          Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie
-          ? ✨ Prêt Pour La Folie ? Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La
-          Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt
-          Pour La Folie ? ✨ Prêt Pour La Folie ? ✨
+          Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est
+          échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup
+          ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir,
+          c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨
         </p>
       </div>
     </div>
@@ -51,10 +51,10 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
     >
       <div class="overflow-hidden whitespace-nowrap">
         <p class="animate-marquee-10s flex">
-          Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie
-          ? ✨ Prêt Pour La Folie ? Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La
-          Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt Pour La Folie ? ✨ Prêt
-          Pour La Folie ? ✨ Prêt Pour La Folie ? ✨
+          Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est
+          échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup
+          ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨ Réussir,
+          c'est échouer beaucoup ! ✨ Réussir, c'est échouer beaucoup ! ✨
         </p>
       </div>
     </div>

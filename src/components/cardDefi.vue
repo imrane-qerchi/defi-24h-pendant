@@ -15,13 +15,13 @@ defineProps({
 })
 
 // État pour contrôler l'affichage de la modal
-import { ref } from 'vue';
-const isModalOpen = ref(false);
+import { ref } from 'vue'
+const isModalOpen = ref(false)
 
 // Fonction pour fermer la modal
 const closeModal = () => {
-  isModalOpen.value = false;
-};
+  isModalOpen.value = false
+}
 </script>
 
 <template>
@@ -29,7 +29,10 @@ const closeModal = () => {
     class="card-defi flex flex-col items-center bg-secondary text-white rounded-3xl p-6 shadow-lg w-80 transform transition-transform duration-300 hover:scale-105"
   >
     <!-- Image principale -->
-    <div class="w-full h-40 overflow-hidden rounded-xl mb-4 cursor-pointer" @click="isModalOpen = true">
+    <div
+      class="w-full h-40 overflow-hidden rounded-xl mb-4 cursor-pointer"
+      @click="isModalOpen = true"
+    >
       <img :src="imageSrc" alt="Team image" class="w-full h-full object-cover" />
     </div>
 
