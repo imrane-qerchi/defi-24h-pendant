@@ -2,7 +2,7 @@ import PocketBase from 'pocketbase'
 import { type UsersResponse, type TypedPocketBase } from './pocketbase-types'
 import { ref } from 'vue'
 
-export const pb = new PocketBase(import.meta.env.VITE_PB_API_URL) as TypedPocketBase
+export const pb = new PocketBase(import.meta.env.VITE_URL_POCKETBASE) as TypedPocketBase
 
 pb.collection('users').getFullList()
 pb.collection('teams').getFullList()
