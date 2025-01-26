@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-// Importation des images du dossier assets
+// Importation des images
 const images = [
   "/images/DEFI_24H_-01.webp",
   "/images/DEFI_24H_-03.webp",
@@ -66,8 +66,24 @@ const images = [
   "/images/DEFI_24H_-61.webp",
 ];
 
-// État pour l'image sélectionnée
+// État des images affichées et de l'image sélectionnée
+const displayedImages = ref<string[]>([]);
 const selectedImage = ref<string | null>(null);
+
+// État pour suivre les lots chargés
+const batchIndex = ref(0);
+const batchSize = 16;
+
+// Charger les images initiales
+const loadMoreImages = () => {
+  const start = batchIndex.value * batchSize;
+  const end = start + batchSize;
+  displayedImages.value.push(...images.slice(start, end));
+  batchIndex.value++;
+};
+
+// Initialiser avec les premières images
+loadMoreImages();
 
 // Fonction pour ouvrir une image
 const openImage = (image: string) => {
@@ -101,15 +117,12 @@ const closeImage = () => {
       <p class="text-sm lg:text-2xl text-black mb-8">
         Revivez les meilleurs moments du Défi 24H grâce à notre galerie photo ! Retrouvez ici toutes les images capturées pendant ces 24 heures de créativité, de folie et de fatigue.
       </p>
-      <p class="text-sm lg:text-2xl text-black mb-8">
-        Qui sait, vous y découvrirez peut-être votre meilleur profil... ou une photo compromettante de votre chef d’équipe endormi sur un clavier. 
-      </p>
     </div>
 
     <!-- Galerie -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div
-        v-for="(image, index) in images"
+        v-for="(image, index) in displayedImages"
         :key="index"
         class="relative overflow-hidden bg-gray-200 cursor-pointer"
         @click="openImage(image)"
@@ -122,15 +135,26 @@ const closeImage = () => {
       </div>
     </div>
 
+    <!-- Bouton Voir Plus -->
+    <div v-if="displayedImages.length < images.length" class="mt-6 text-center">
+      <button
+        @click="loadMoreImages"
+        class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-blue-600"
+      >
+        Voir plus
+      </button>
+    </div>
+
     <!-- Modal d'affichage de l'image -->
     <div
       v-if="selectedImage"
       class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+      @click.self="closeImage"
     >
-      <div class="relative p-4 bg-black rounded-lg">
+      <div class="relative p-4">
         <button
           @click="closeImage"
-          class="absolute top-2 right-2 text-white text-3xl z-50"
+          class="absolute top-4 right-4 text-white text-3xl z-50"
         >
           ✕
         </button>
