@@ -1,47 +1,47 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { pb } from '@/backend';
+import { ref, onMounted } from 'vue'
+import { pb } from '@/backend'
 
 interface Creation {
-  id: string;
-  title: string;
-  type: string;
-  url: string;
-  media: string;
-  teamName: string;
+  id: string
+  title: string
+  type: string
+  url: string
+  media: string
+  teamName: string
 }
 
 // État réactif pour stocker les créations
-const creations = ref<Creation[]>([]);
+const creations = ref<Creation[]>([])
 
 // Charger les créations depuis PocketBase
 const fetchCreations = async () => {
   try {
     const response = await pb.collection('creations').getFullList({
-      expand: 'team',
-    });
+      expand: 'team'
+    })
     creations.value = response.map((creation) => ({
       id: creation.id,
       title: creation.title,
       type: creation.type,
       url: creation.url,
       media: pb.files.getUrl(creation, creation.media),
-      teamName: creation.expand?.team?.nom || 'Équipe inconnue',
-    }));
+      teamName: creation.expand?.team?.nom || 'Équipe inconnue'
+    }))
   } catch (error) {
-    console.error('Erreur lors de la récupération des créations :', error);
+    console.error('Erreur lors de la récupération des créations :', error)
   }
-};
+}
 
 // Fonction pour ouvrir un lien dans un nouvel onglet
 const openProjectLink = (url: string) => {
-  window.open(url, '_blank');
-};
+  window.open(url, '_blank')
+}
 
 onMounted(() => {
-  fetchCreations();
-});
+  fetchCreations()
+})
 </script>
 
 <template>
@@ -74,11 +74,7 @@ onMounted(() => {
       >
         <!-- Miniature -->
         <div class="relative">
-          <img
-            :src="creation.media"
-            alt="Miniature du projet"
-            class="w-full h-48 object-cover"
-          />
+          <img :src="creation.media" alt="Miniature du projet" class="w-full h-48 object-cover" />
         </div>
 
         <!-- Informations -->
