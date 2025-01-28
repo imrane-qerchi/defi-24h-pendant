@@ -64,6 +64,22 @@ onMounted(() => {
       </h2>
     </div>
 
+    <div class="mt-12 max-w-7xl">
+      <p class="text-sm lg:text-2xl text-black mb-8">
+        Le thème de cette année ? « Réussir, c’est échouer beaucoup ».
+      </p>
+      <p class="text-sm lg:text-2xl text-black mb-8">
+        Et pour rendre ça encore plus drôle (ou cruel, selon les équipes), deux contraintes étaient
+        imposées : glisser une référence sur MMI (prof, anecdote ou autre insider joke) et inclure
+        du bleu, du jaune ou du rouge dans le projet.
+      </p>
+      <p class="text-sm lg:text-2xl text-black mb-8">
+        Spoiler : certains ont réussi à tout caser, d’autres… ont échoué beaucoup. Mais franchement,
+        ça vaut le détour. Allez jeter un œil, vous ne serez pas déçus (ou si, mais dans le bon
+        sens) !
+      </p>
+    </div>
+
     <!-- Cards des créations -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
       <div
