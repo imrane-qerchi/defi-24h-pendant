@@ -1,8 +1,0 @@
-# Rediriger le domaine sans www vers www 
-https://defi24h.mmimontbeliard.com/* https://www.defi24h.mmimontbeliard.com/:splat 301!
-
-# Redirection pour l'API (en maintenant le chemin exact)
-/api/*  https://www.defi24h.mmimontbeliard.com/api/:splat 200
-
-# Redirection catch-all pour les autres chemins
-/*  / 200
