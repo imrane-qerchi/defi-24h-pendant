@@ -5,4 +5,4 @@ https://defi24h.mmimontbeliard.com/* https://www.defi24h.mmimontbeliard.com/:spl
 /api/*  https://www.defi24h.mmimontbeliard.com/api/:splat 200
 
 # Redirection catch-all pour les autres chemins
-/*  /index.html 200
+/*  / 200
