@@ -44,7 +44,7 @@ const countdownUnits = [
     style="-webkit-text-stroke: 3px #0029ff"
   >
     <div class="flex items-baseline space-x-2">
-      <p class="text-[180px] md:text-8xl lg:text-[240px] font-bold leading-none">
+      <p class="text-[95px] md:text-8xl lg:text-[140px] font-bold leading-none">
         Merci à vous !
       </p>
     </div>
