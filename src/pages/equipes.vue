@@ -82,7 +82,7 @@ onMounted(() => {
       <!-- Cards -->
       <div
         v-if="teams.length"
-        class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:mt-20 max-w-screen-xl"
+         class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:mt-20"
       >
         <CardDefi
           v-for="(team, index) in teams"
