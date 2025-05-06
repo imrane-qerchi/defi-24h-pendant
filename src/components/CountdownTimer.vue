@@ -43,13 +43,10 @@ const countdownUnits = [
     class="flex flex-col lg:flex-row justify-center items-center lg:space-y-0 lg:space-x-4 font-poppins text-transparent opacity-90"
     style="-webkit-text-stroke: 3px #0029ff"
   >
-    <div v-for="(unit, index) in countdownUnits" :key="index" class="flex items-baseline space-x-2">
+    <div class="flex items-baseline space-x-2">
       <p class="text-[180px] md:text-8xl lg:text-[240px] font-bold leading-none">
-        {{ unit.value }}
+        Merci à vous !
       </p>
-      <span class="text-6xl lg:text-5xl font-medium leading-tight">
-        {{ unit.label }}
-      </span>
     </div>
   </div>
 </template>
